@@ -8,10 +8,10 @@ class Transaction {
 
   public function addTransaction($data) {
     // Prepare Query
-    $query = 'INSERT INTO transactions (
-        id, customer_id, product, amount, currency, status
-      ) VALUES (
-        :id, :customer_id, :product, :amount, :currency, :status
+    $query = 'INSERT INTO transactions ( 
+        id, customer_id, product, amount, currency, status 
+      ) VALUES ( 
+        :id, :customer_id, :product, :amount, :currency, :status 
       )
     ';
     $this->db->query($query);
@@ -30,5 +30,21 @@ class Transaction {
     }
 
     return false;
+  }
+
+  public function getTransactions() {
+    $query = 'SELECT 
+        * 
+      FROM 
+        transactions 
+      ORDER BY 
+        created_at 
+      DESC
+    ';
+
+    $this->db->query($query);
+    $results = $this->db->resultset();
+
+    return $results;
   }
 }

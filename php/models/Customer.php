@@ -8,10 +8,10 @@ class Customer {
 
   public function addCustomer($data) {
     // Prepare Query
-    $query = 'INSERT INTO customers (
-        id, first_name, last_name, email
-      ) VALUES (
-        :id, :first_name, :last_name, :email
+    $query = 'INSERT INTO customers ( 
+        id, first_name, last_name, email 
+      ) VALUES ( 
+        :id, :first_name, :last_name, :email 
       )
     ';
     $this->db->query($query);
@@ -28,5 +28,21 @@ class Customer {
     }
 
     return false;
+  }
+
+  public function getCustomers() {
+    $query = 'SELECT 
+        * 
+      FROM 
+        customers 
+      ORDER BY 
+        created_at 
+      DESC
+    ';
+
+    $this->db->query($query);
+    $results = $this->db->resultset();
+
+    return $results;
   }
 }

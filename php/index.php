@@ -13,7 +13,12 @@
 <body>
 
   <div class="container">
-    <h2 class="my-4 text-center">Intro to React Course [$50]</h2>
+    <div class="btn-group" role="group">
+      <a href="customers.php" class="btn btn-success mt-4">Customers</a>
+      <a href="transactions.php" class="btn btn-secondary mt-4">Transactions</a>
+    </div>
+    <hr>
+    <h2 class="my-2 text-center">Intro to React Course [$50]</h2>
     <form action="./charge.php" method="post" id="payment-form">
       <div class="form-row">
         <input type="text" name="first_name" class="form-control mb-3 StripeElement StripeElement--empty" placeholder="First Name">
