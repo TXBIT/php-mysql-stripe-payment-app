@@ -1,2 +1,5 @@
 sql/
+
 php/vendor
+
+php/config/db.php
